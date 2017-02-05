@@ -1,24 +1,36 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[Project_03] Ajax Commenting App with User Authentication
 
-Things you may want to cover:
+- GOAL
+  * Create a commenting app where "users" can make comments.
+  * Users have to be authenticated.
+  * Comment destroy, edit actions specific to original user that created them.
+  * User have profile page listing all comments created by 'this' user.
+  * Comment index page shows all comments and comment form using ajax.
+  * Style and make app more interactive with bootstrap and jquery.
+    . Comment create form should pop up and fill screen when new comment is clicked.
+    . After :nth(5) comments, older comments should be hidden
+    . Toggle show hidden comments
 
-* Ruby version
 
-* System dependencies
 
-* Configuration
+- User model
+  * Attributes
+    . username - validate
+    . password - validate
+    . email    - validate
 
-* Database creation
+  * Association
+    + has_many
+      . comments
 
-* Database initialization
 
-* How to run the test suite
+- Comment model
+  * Attributes
+    . body     - validate
+    . user_id  - validate
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+  * Association
+    + belongs_to
+      . user
