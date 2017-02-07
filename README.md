@@ -9,28 +9,28 @@
   * User have profile page listing all comments created by 'this' user.
   * Comment index page shows all comments and comment form using ajax.
   * Style and make app more interactive with bootstrap and jquery.
-    . Comment create form should pop up and fill screen when new comment is clicked.
-    . After :nth(5) comments, older comments should be hidden
-    . Toggle show hidden comments
+    + Comment create form should pop up and fill screen when new comment is clicked.
+    + After :nth(5) comments, older comments should be hidden
+    + Toggle show hidden comments
 
 
 
 - User model
   * Attributes
-    . username - validate
-    . password - validate
-    . email    - validate
+    + username - validate
+    + password - validate
+    + email    - validate
 
   * Association
     + has_many
-      . comments
+      - comments
 
 
 - Comment model
   * Attributes
-    . body     - validate
-    . user_id  - validate
+    - body     - validate
+    - user_id  - validate
 
   * Association
     + belongs_to
-      . user
+      - user

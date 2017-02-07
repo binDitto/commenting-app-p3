@@ -1,0 +1,19 @@
+<h1>Hello</h1>
+
+<%= form_for @user do |u| %>
+
+  <%= u.label :username %>
+  <%= u.text_field :username %>
+
+  <%= u.label :email %>
+  <%= u.text_field :email %>
+
+  <%= u.label :password %>
+  <%= u.password_field :password %>
+
+  <%= u.label :password_confirmation %>
+  <%= u.password_field :password_confirmation %>
+
+  <%= u.submit "Sign me up!" %>
+
+<% end %>
