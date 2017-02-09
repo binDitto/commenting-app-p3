@@ -4,6 +4,12 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+
+    if params[:search]
+      @users = User.search(params[:search]).order("created_at DESC")
+    else
+      @users = User.all.order('created_at DESC')
+    end
   end
 
   def signup
@@ -12,9 +18,9 @@ class UsersController < ApplicationController
 
   def create
     @newuser = User.new(signup_params)
-
     if @newuser.save
-      flash[:success] = "Welcome #{@user.username}, rad name!"
+      session[:user_id] = @newuser.id
+      flash[:success] = "Welcome #{@newuser.username}, rad name!"
       redirect_to root_path
     else
       flash[:danger] = "Signup failed.. it wasn't meant to be man. Try again?"
@@ -28,7 +34,7 @@ class UsersController < ApplicationController
   def update
     @user.update(edit_params)
 
-    if @user.update
+    if @user.save
       flash[:success] = "Info updated"
       redirect_to root_path
     else

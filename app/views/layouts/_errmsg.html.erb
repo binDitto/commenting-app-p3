@@ -1,0 +1,12 @@
+<% if obj.errors.any? %>
+  <div class="well well-danger">
+    <h3><%= pluralize(obj.errors.count, "error") %> prevented the form from submitting!</h3>
+    <ul>
+      <% obj.errors.full_messages.each do |error| %>
+        <li>
+          <%= error %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

@@ -1,4 +1,9 @@
 class User < ActiveRecord::Base
+  has_many :comments
+
+  def self.search(search)
+    where("username LIKE ?", "%#{search}%")
+  end
 
   has_secure_password
   before_save { self.password = password.downcase }
@@ -16,7 +21,5 @@ class User < ActiveRecord::Base
 
   validates :password, presence: true,
             length: { minimum: 8, maximum: 20 }
-
-  validates_confirmation_of :password, message: "Passwords don't match."
 
 end

@@ -1,4 +1,5 @@
 <%= form_for(obj) do |u| %>
+  <%= render "layouts/errmsg", obj: obj %>
   <div class="form-group">
     <%= u.label :username %>
     <%= u.text_field :username, class: "form-control", placeholder: "Enter a username" %>

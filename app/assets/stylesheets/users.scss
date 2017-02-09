@@ -10,3 +10,14 @@
     float: right;
   }
 }
+
+.block{
+  display: inline-block;
+  padding: 5px;
+  .blockit {
+  display: block;
+  border: 1px solid #eaeaea;
+  padding: 20px;
+  width: 100%;
+  }
+}

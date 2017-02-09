@@ -1,22 +1,24 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-6">
-      <h1>Yolo</h1>
-        <ul>
+        <ul align="center"><h1 align="center">Users</h1>
           <% @users.each do |user| %>
-            <li>
-              <%= link_to "#{user.username}", user_path(user), class: "label label-success" %>
-              <hr>
-              <small>Joined <%= time_ago_in_words(user.created_at) %> ago</small>
-              <hr>
-              <%= link_to 'Edit', edit_user_path(user), class: "btn btn-primary" %>
-              <%= link_to 'Delete', user_path(user),
-                                    method: :delete,
-                                    data: { confirm: "Are you sure you want to deactivate your account?" },
-                                    class: "btn btn-danger" %>
+            <li class="col-xs-6 col-md-4 block">
+              <div class="blockit">
+                <%= link_to "#{user.username}", user_path(user), class: "label label-success" %>
+                <hr>
+                <small>Joined <%= time_ago_in_words(user.created_at) %> ago</small>
+
+                <% if logged_in? && current_user.id == user.id %>
+                <hr>
+                  <%= link_to 'Edit', edit_user_path(user), class: "btn btn-primary" %>
+                  <%= link_to 'Deactivate', user_path(user),
+                                        method: :delete,
+                                        data: { confirm: "Are you sure you want to deactivate your account?" },
+                                        class: "btn btn-danger" %>
+                <% end %>
+              </div>
             </li>
           <% end %>
         </ul>
-    </div>
   </div>
 </div>
