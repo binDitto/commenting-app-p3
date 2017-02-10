@@ -7,11 +7,10 @@ class User < ActiveRecord::Base
 
   has_secure_password
   before_save { self.password = password.downcase }
-  before_save { self.username = username.downcase }
 
   validates :username, presence: true,
             length: { minimum: 3, maximum: 25 },
-            uniqueness: { case_sensitive: true } # this is what caused all those seeded user login problems!!
+            uniqueness: { case_sensitive: false } # this is what caused all those seeded user login problems!!
 
   val_email_reg = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 

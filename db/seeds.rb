@@ -12,17 +12,17 @@ User.destroy_all
 
 User.create!([
   {
-    username: "whackyTommy",
+    username: "whackytommy",
     email: "whackytommy@example.com",
     password: "password"
   },
   {
-    username: "crazyNa",
+    username: "crazyna",
     email: "crazyna@example.com",
     password: "password"
   },
   {
-    username: "ahnyienCutie",
+    username: "ahnyiencutie",
     email: "ahnyiencutie@example.com",
     password: "password"
   }])

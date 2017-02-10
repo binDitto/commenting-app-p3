@@ -1,8 +1,10 @@
 <div class="container">
   <div class="row">
-        <ul align="center"><h1 align="center">Users</h1>
+        <ul class="col-md-12 blo" align="center">
+          <h1 align="center">Users</h1>
+
           <% @users.each do |user| %>
-            <li class="col-xs-6 col-md-4 block">
+            <li class="col-xs-6 col-md-4 block" align="center">
               <div class="blockit">
                 <%= link_to "#{user.username}", user_path(user), class: "label label-success" %>
                 <hr>
