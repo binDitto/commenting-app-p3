@@ -10,6 +10,8 @@
 
 User.destroy_all
 
+Comment.destroy_all
+
 User.create!([
   {
     username: "whackytommy",
@@ -27,4 +29,15 @@ User.create!([
     password: "password"
   }])
 
-puts "You've deleted all users and created #{User.count} from scratch!"
+User.last.comments.create!([
+  {
+    body: "Yo Whatsup!"
+  },
+  {
+    body: "Yo nuttin much bro"
+  },
+  {
+    body: "Still sellin em shoes?"
+  }])
+
+puts "You've deleted all users and created #{User.count} from scratch! You've also made #{Comment.count} comments man!"

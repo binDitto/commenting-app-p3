@@ -15,7 +15,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><%= link_to 'Users', users_path %></li>
-        <li><a href="#">Link</a></li>
+        <li><%= link_to 'Comments', comments_path %></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -29,6 +29,19 @@
           </ul>
         </li>
       </ul>
+
+      <% if params[:action] == 'comments' && params[:controller] == 'comments' %>
+        <!-- Searching comments work here -->
+
+        <%= form_tag(comments_path, method: :get, id: "search-form", class: "navbar-form navbar-left") do %>
+          <div class="form-group">
+            <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search comments" %>
+          </div>
+            <%= submit_tag "Search", class: "btn btn-default" %>
+        <% end %>
+        <!-- End Search -->
+      <% end %>
+
       <% if params[:action] == 'index' && params[:controller] == 'users' %>
          <!-- Searching works here!! -->
 

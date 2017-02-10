@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row">
+    <ul>
+      <% @comments.each do |comment| %>
+        <li>
+          <%= comment.body %>
+          <%= link_to "Edit", edit_user_comment_path(@user, comment), class: "btn btn-primary" %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
