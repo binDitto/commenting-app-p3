@@ -15,11 +15,63 @@
 }
 .block{
   margin: 0px;
-  border: 1px solid #eaeaea;
+
   display: inline-block;
   padding: 5px;
+
   .blockit {
+  position: relative;
+  border-radius: 10px;
   border: 1px solid #eaeaea;
   padding: 20px;
   }
+}
+
+.header {
+  padding: 10px;
+  border: 1px solid #eaeaea;
+  margin: 0px;
+
+  color: white;
+  text-decoration: none;
+  background-color: skyblue;
+}
+.user{
+
+  background-color: #108ccc;
+
+}
+.useractions {
+  z-index: 20;
+  width: 250px;
+  bottom: -40px;
+  border-radius: 10px;
+  margin: 0px 0px;
+  background-color: white;
+  left: 50%;
+  margin-left: -125px;
+  position: absolute;
+  display: none;
+  padding: 10px;
+  border: 1px solid #eaeaea;
+  box-shadow: 1px 1px 5px #eaeaea;
+}
+.useract {
+  visibility: hidden;
+  display: block;
+  padding: 10px;
+}
+.visible {
+  border-top: 1px solid #eaeaea;
+  visibility: visible;
+}
+.userinfo {
+  display: block;
+  padding: 10px;
+}
+small {
+  margin: 10px;
+}
+.no-under:hover {
+  text-decoration: none;
 }

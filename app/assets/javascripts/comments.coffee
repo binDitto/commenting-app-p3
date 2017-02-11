@@ -2,11 +2,10 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$(document).ready ->
-  $('#showpopup').click (e) ->
-    e.preventDefault()
-    $('.popup').fadeIn(2000)
+$(document).on 'click', '#showpopup', (e) ->
+  e.preventDefault()
+  $('.popup').fadeIn(1500)
 
-  $('.close2 .fa').click (e) ->
-    e.preventDefault()
-    $('.popup').fadeOut(2000)
+$(document).on 'click', '.close2 .fa', (e) ->
+  e.preventDefault()
+  $('.popup').fadeOut(1500)

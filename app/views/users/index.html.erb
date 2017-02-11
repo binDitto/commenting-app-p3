@@ -6,17 +6,30 @@
           <% @users.each do |user| %>
             <li class="col-xs-6 col-md-4 block" align="center">
               <div class="blockit">
-                <%= link_to "#{user.username}", user_path(user), class: "label label-success" %>
-                <hr>
+                <%= link_to(user_path(user), html: { class: "no-under" }) do %>
+                  <h3 class="header <%= "user" if logged_in? && current_user.id == user.id %> "><%= user.username %></h3>
+                <% end %>
+
+              <div class="userinfo">
+                <%= link_to user_comments_path(user, @comments)  do %>
+                  <small class="badge"><%= pluralize(user.comments.count, "comment") %></small>
+                <% end %>
+              </br>
                 <small>Joined <%= time_ago_in_words(user.created_at) %> ago</small>
 
+              </div>
+              <a href="#" class="useract <%= "visible" if logged_in? && current_user.id == user.id %>"><i class="fa fa-chevron-down"></i></a>
+
                 <% if logged_in? && current_user.id == user.id %>
-                <hr>
+
+                <div class="useractions">
                   <%= link_to 'Edit', edit_user_path(user), class: "btn btn-primary" %>
                   <%= link_to 'Deactivate', user_path(user),
                                         method: :delete,
                                         data: { confirm: "Are you sure you want to deactivate your account?" },
                                         class: "btn btn-danger" %>
+                </div>
+
                 <% end %>
               </div>
             </li>
