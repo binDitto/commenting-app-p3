@@ -9,6 +9,9 @@
   </head>
 
   <body>
+    <% if params[:controller] == "comments"%>
+      <%= render 'comments/form' %>
+    <% end %>
     <%= render 'layouts/navigation' %>
     <%= render 'layouts/flash' %>
     <%= yield %>

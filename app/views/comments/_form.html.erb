@@ -1,0 +1,16 @@
+<% if logged_in? %>
+<div class="popup">
+  <div class="container">
+    <div class="row">
+      <a href="#" class="close2"><i class="fa fa-times fa-4x"></i></a>
+      <%= form_for(@comment, html: { class: "col-md-10 popupform"}) do |c| %>
+
+        <div class="form-group popup-group">
+          <%= c.text_field :body, class: "form-control popup-control", placeholder: "Enter comment" %>
+        </div>
+          <%= c.submit "Post", class: "popup-button" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<% end %>

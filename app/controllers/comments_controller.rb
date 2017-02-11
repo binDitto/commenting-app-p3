@@ -2,9 +2,10 @@ class CommentsController < ApplicationController
 
   def comments
     @comments = Comment.all.order("created_at DESC")
-    @user = User.find(session[:user_id])
-    @comment = @user.comments.new()
-
+    if logged_in?
+      @user = User.find(session[:user_id])
+      @comment = @user.comments.new()
+    end
     if params[:search]
       @comments = Comment.search(params[:search]).order("created_at DESC")
     end
@@ -22,8 +23,16 @@ class CommentsController < ApplicationController
 
   def create
     @user = User.find(session[:user_id])
-    @comment = @user.comments.create!(comment_params)
-    redirect_to comments_path
+    @comment = @user.comments.create(comment_params)
+
+    if @comment.save
+      flash[:success] = "Thanks for commenting!"
+
+      redirect_to comments_path
+    else
+      flash[:danger] = "Comment failed to go through!"
+      redirect_to comments_path
+    end
   end
 
   def edit
