@@ -5,10 +5,10 @@
 
           <% @users.each do |user| %>
             <li class="col-xs-6 col-md-4 block" align="center">
+              <%= link_to(user_path(user), html: { class: "no-under" }) do %>
+                <h3 class="header <%= "user" if logged_in? && current_user.id == user.id %> "><%= user.username %></h3>
+              <% end %>
               <div class="blockit">
-                <%= link_to(user_path(user), html: { class: "no-under" }) do %>
-                  <h3 class="header <%= "user" if logged_in? && current_user.id == user.id %> "><%= user.username %></h3>
-                <% end %>
 
               <div class="userinfo">
                 <%= link_to user_comments_path(user, @comments)  do %>

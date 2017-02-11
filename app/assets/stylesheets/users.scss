@@ -21,15 +21,23 @@
 
   .blockit {
   position: relative;
-  border-radius: 10px;
-  border: 1px solid #eaeaea;
-  padding: 20px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-right: 1px solid #eaeaea;
+  border-left: 1px solid #eaeaea;
+  border-bottom: 1px solid #eaeaea;
+
+  overflow: hidden;
   }
 }
 
 .header {
-  padding: 10px;
-  border: 1px solid #eaeaea;
+  padding: 30px 10px;
+  border-top: 1px solid #eaeaea;
+  border-left: 1px solid #eaeaea;
+  border-right: 1px solid #eaeaea;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
   margin: 0px;
 
   color: white;
