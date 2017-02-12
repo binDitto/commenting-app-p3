@@ -50,6 +50,7 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     flash[:danger] = "Your account is officially deactivated!"
+    session[:user_id] = nil
     redirect_to root_path
   end
 

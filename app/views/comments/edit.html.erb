@@ -1,10 +1,31 @@
+
 <div class="container">
   <div class="row">
-    <%= form_for([@user, @comment]) do |ec| %>
-      <div class="form-group">
-        <%= ec.text_field :body, class: "form-control" %>
+    <div class="col-md-6 col-md-offset-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="btn-group" role="group" aria-label="...">
+            <%= link_to 'Users', users_path, class: "btn btn-success" %>
+            <% if @user.comments.any? %>
+              <%= link_to 'User Comments', user_comments_path(@user), class: "btn btn-default" %>
+            <% end %>
+          </div>
+            <br/>
+          <h2>Edit Comment</h2>
+        </div>
+        <div class="panel-body">
+          <%= form_for([@user, @comment]) do |ec| %>
+            <div class="form-group">
+              <%= ec.text_area :body, class: "form-control", rows: "3" %>
+            </div>
+
+        </div>
+        <div class="panel-footer">
+            <%= ec.submit "Update", class: "btn btn-success" %>
+          <% end %>
+        </div>
+
       </div>
-        <%= ec.submit "Update Comment!" %>
-    <% end %>
+    </div>
   </div>
 </div>

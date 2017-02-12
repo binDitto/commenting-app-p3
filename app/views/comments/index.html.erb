@@ -1,12 +1,36 @@
+
 <div class="container">
   <div class="row">
-    <ul>
-      <% @comments.each do |comment| %>
-        <li>
-          <%= comment.body %>
-          <%= link_to "Edit", edit_user_comment_path(@user, comment), class: "btn btn-primary" %>
-        </li>
-      <% end %>
-    </ul>
+    <div class="col-md-6 col-md-offset-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h2><%= @user.username %>'s comments</h2>
+        </div>
+        <div class="panel-body">
+          <div class="list-group">
+            <% @comments.each do |comment| %>
+              <div class="list-group-item <%= comment == @user.comments.last ? "active" : " " %> ">
+
+                <h4 class="list-group-item-heading">
+                  <%= comment.body %>
+                </h4>
+
+                <p class="list-group-item-text">
+                  Made <%= time_ago_in_words(comment.created_at) %> ago
+                  <% if comment.user == current_user %>
+                    <hr>
+
+                  <% end %>
+                </p>
+                <div class="btn-group btn-group-xs" role="group" aria-label="...">
+                  <%= link_to "Edit", edit_user_comment_path(@user, comment), class: "btn btn-default" %>
+                  <%= link_to "Delete", user_comment_path(@user, comment), method: :delete, class: "btn btn-danger" %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

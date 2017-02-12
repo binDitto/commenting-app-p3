@@ -14,7 +14,12 @@ class CommentsController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])
-    @comments = @user.comments
+    @comments = @user.comments.order("created_at DESC")
+
+    if !@user.comments.any?
+      redirect_to users_path
+      flash[:danger] = "User has no comments"
+    end
   end
 
   def new

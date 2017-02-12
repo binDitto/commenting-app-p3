@@ -24,3 +24,11 @@
  a:hover {
    text-decoration: none;
  }
+
+ .nav.navbar-nav li a {
+     color: white;
+ }
+
+ .navbar-brand {
+     color: white;
+ }

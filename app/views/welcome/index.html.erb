@@ -1,1 +1,33 @@
-<%= link_to 'See all Users', users_path, class: "btn btn-default" %>
+<div class="container welc">
+  <div class="row" align="center">
+    <% if Comment.any? %>
+      <h2>Latest Comment</h2>
+
+      <div class="col-md-8 col-md-offset-2">
+        <ul class="welul">
+          <% @comments.each do |comment| %>
+          <li class="welli">
+
+            <h6><span class="label label-success"><%= comment.user.username %></span> said: </h6>
+
+            <h2><%= comment.body %></h2>
+
+            <p>
+
+                <%= time_ago_in_words(comment.created_at) %> ago
+
+            </p>
+
+          </li>
+          <% end %>
+        </ul>
+
+      </div>
+
+    <% else %>
+
+      <h1>World's Best Commenting App!</h1>
+
+    <% end %>
+  </div>
+</div>

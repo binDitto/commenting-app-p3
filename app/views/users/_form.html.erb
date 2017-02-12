@@ -12,9 +12,9 @@
 
   <div class="form-group">
     <%= u.label :password %>
-    <%= u.password_field :password, class: "form-control", placeholder: "Enter a password" %>
+    <%= u.password_field :password, class: "form-control", placeholder: "Enter new password" %>
     <br/>
-    <%= u.password_field :password_confirmation, class: "form-control", placeholder: "Confirm the password" %>
+    <%= u.password_field :password_confirmation, class: "form-control", placeholder: "Confirm new password" %>
   </div>
     <% if obj == @newuser %>
       <%= u.submit "Sign UP!", class: "btn btn-lg btn-primary" %>

@@ -1,19 +1,33 @@
 
 <div class="container">
-  <div class="row">
-    all comments
-    <a href="#" class="btn btn-success" id="showpopup">Make a comment</a>
-    <ul class="blo">
-      <% @comments.each do |comment| %>
-        <li class="block">
-          <div class="blockit">
+  <div class="row" align="center">
+    <% if Comment.any? %>
+      <a href="#" class="btn btn-success btn-lg" id="showpopup">Make a comment</a>
+      <hr>
+      <div class="col-md-6 col-md-offset-3">
+        <ul class="list-group">
+          <% @comments.each do |comment| %>
+              <li class="list-group-item <%= comment.user == current_user ? "align-left" : "align-right" %>">
+                <h6
+                  <span class="label label-<%= comment.user == current_user ? "success" : "primary" %>">
+                  <%= comment.user.username %></span> said:
+                </h6>
 
-            <small class="label label-default"><%= comment.user.username %></small>
-            <hr>
-            <%= comment.body %>
-          </div>
-        </li>
-      <% end %>
-    </ul>
+                <h5><%= comment.body %></h2>
+
+                <p>
+
+                    <%= time_ago_in_words(comment.created_at) %> ago
+
+                </p>
+              </li>
+          <% end %>
+        </ul>
+      </div>
+    <% else %>
+
+      <h2 align="center">Sign up and make the first comment!</h2>
+
+    <% end %>
   </div>
 </div>
