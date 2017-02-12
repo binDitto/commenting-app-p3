@@ -43,6 +43,12 @@ class CommentsController < ApplicationController
   def edit
     @user = User.find(params[:user_id])
     @comment = @user.comments.find(params[:id])
+    if current_user != @user
+      flash[:danger] = "Why you trying ta edit someone else's stuff?"
+      redirect_to users_path
+
+    end
+
   end
 
   def update

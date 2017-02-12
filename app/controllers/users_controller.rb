@@ -29,6 +29,10 @@ class UsersController < ApplicationController
   end
 
   def edit
+    if current_user != @user
+      flash[:danger] = "You cannot edit someone else's profile"
+      redirect_to users_path
+    end
   end
 
   def update

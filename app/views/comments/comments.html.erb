@@ -2,7 +2,12 @@
 <div class="container">
   <div class="row" align="center">
     <% if User.any? %>
+      <% if !logged_in? %>
+        <h2>You must be logged in to make a comment.</h2>
+      <% else %>
+
       <a href="#" class="btn btn-success btn-lg" id="showpopup">Make a comment</a>
+      <% end %>
       <hr>
       <div class="col-md-6 col-md-offset-3">
         <ul class="list-group">
