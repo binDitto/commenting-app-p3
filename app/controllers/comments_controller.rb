@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-
+  before_action :require_user, only: [ :edit, :update, :destroy]
   def comments
     @comments = Comment.all.order("created_at DESC")
     if logged_in?

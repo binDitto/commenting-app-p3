@@ -25,10 +25,12 @@
 
                   <% end %>
                 </p>
-                <div class="btn-group btn-group-xs" role="group" aria-label="...">
-                  <%= link_to "Edit", edit_user_comment_path(@user, comment), class: "btn btn-default" %>
-                  <%= link_to "Delete", user_comment_path(@user, comment), method: :delete, class: "btn btn-danger" %>
-                </div>
+                <% if logged_in? && comment.user == current_user %>
+                  <div class="btn-group btn-group-xs" role="group" aria-label="...">
+                    <%= link_to "Edit", edit_user_comment_path(@user, comment), class: "btn btn-default" %>
+                    <%= link_to "Delete", user_comment_path(@user, comment), method: :delete, class: "btn btn-danger" %>
+                  </div>
+                <% end %>
               </div>
             <% end %>
           </div>
