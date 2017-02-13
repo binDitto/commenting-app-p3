@@ -70,7 +70,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9c667', end
 .useractions {
   z-index: 20;
   width: 250px;
-  bottom: -52px;
+  bottom: -42px;
   border-radius: 10px;
   margin: 0px 0px;
   background-color: white;
@@ -87,7 +87,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9c667', end
   visibility: hidden;
   display: block;
   position: relative;
-
+  padding: 10px;
   margin: none;
 }
 .visible {
