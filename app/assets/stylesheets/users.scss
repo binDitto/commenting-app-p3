@@ -19,8 +19,8 @@
 }
 .block{
   margin: 0px;
-
-  display: inline-block;
+  position: relative;
+  display: table;
   padding: 10px;
 
   .blockit {
@@ -70,12 +70,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9c667', end
 .useractions {
   z-index: 20;
   width: 250px;
-  bottom: -42px;
+  bottom: -52px;
   border-radius: 10px;
   margin: 0px 0px;
   background-color: white;
   left: 50%;
   margin-left: -125px;
+  margin-bottom: 0px;
   position: absolute;
   display: none;
   padding: 10px;
@@ -85,11 +86,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9c667', end
 .useract {
   visibility: hidden;
   display: block;
-  padding: 10px;
+  position: relative;
+
+  margin: none;
 }
 .visible {
+  display: block;
   border-top: 1px solid #eaeaea;
   visibility: visible;
+}
+.invisible {
+  display: block;
+  border-top: 1px solid #eaeaea;
+  visibility: hidden;
 }
 .userinfo {
   display: block;

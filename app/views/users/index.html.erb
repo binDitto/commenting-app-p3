@@ -26,7 +26,9 @@
 
               </div>
 
-                <a href="#" class="useract <%= "visible" if logged_in? && current_user.id == user.id %>"><i class="fa fa-chevron-down"></i></a>
+                <a href="#" class="useract <%= logged_in? && current_user.id == user.id ? "visible" : "invisible" %>">
+                  <i class="fa fa-chevron-down"></i>
+                </a>
 
                 <% if logged_in? && current_user.id == user.id %>
 
