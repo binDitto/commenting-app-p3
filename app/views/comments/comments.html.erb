@@ -19,7 +19,7 @@
                   <% if logged_in? && current_user == comment.user %>
                     <div class="btn-group-sm right">
 
-                      <%= link_to "Delete", user_comment_path(@user, comment), method: :delete, class: "btn btn-danger" %>
+                      <%= link_to "Delete", user_comment_path(@user, comment), method: :delete, data: { confirm: "Are  you sure?" }, class: "btn btn-danger" %>
 
                     </div>
                   <% end %>

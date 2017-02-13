@@ -6,7 +6,7 @@
 
 
           <% @users.each do |user| %>
-            <li class="col-xs-6 col-md-4 block" align="center">
+            <li class="col-xs-12 col-sm-6 col-md-4 col-lg-4 block" align="center">
 
                 <%= link_to(user_path(user), html: { class: "no-under" }) do %>
                   <h3 class="header <%= "user" if logged_in? && current_user.id == user.id %> "><%= user.username %></h3>
