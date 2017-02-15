@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   has_many :comments, dependent: :destroy
 
   def self.search(search)
-    where("username LIKE ?", "%#{search.downcase}%")
+    where("username iLIKE ?", "%#{search}%")
   end
 
   has_secure_password
